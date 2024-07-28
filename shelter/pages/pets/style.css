@@ -37,6 +37,7 @@
 html {
 	font-size: 12px;
 	letter-spacing: 4px;
+	scroll-behavior: smooth;
 }	
 body{
 width:100%;
@@ -134,8 +135,8 @@ main {
 	color: var(--color-dark-l);
 }
   .slider{
-margin: 0 auto 10px auto;
-	padding: 5px;
+margin: 10 auto 10px auto;
+	padding: 25px 5px 5px 3px;
 	display: flex;
 	justify-content:space-between;
 	text-align: center;
@@ -186,12 +187,13 @@ margin: 0 auto 10px auto;
 	margin-top: 0;
    }
    .nav-list-arrows {
+	padding: 20px;
     display: flex;
     justify-content:center;
     list-style: none;
   }
 .nav-item-arrows {
-	padding: 2px;
+	padding: 4px;
 	font-family: "Arial", sans-serif;
 	font-weight: 400;
 	font-size: 15px;
