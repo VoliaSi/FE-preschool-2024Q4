@@ -35,25 +35,23 @@
 		}
 	  
 html {
-	height: 100%;
 	font-size: 12px;
 	letter-spacing: 4px;
-	padding: 0;
-    margin: 0;
 }	
 body {
-	margin: 0;
-	height: 3796px;
+	width: 100%;
   }
   .page{
+	margin: 0;
 	overflow: hidden;
 	min-height: 100%;
 	display: grid;
 	grid-template-rows: auto 1fr auto;
   }
-  .main {
+  main {
 	margin: 0 auto;
 	width: 100%;
+	overflow: hidden;
 }
 .start-screen{
 	background: var(--start-screen-gradient-background);
@@ -167,25 +165,15 @@ body {
   }
   .about{
 	width: 100%;
-	height: 588px;
 	background: var(--color-light-xl);
   }
   .about-content{
 	max-width: var(--content-width);
-	margin: 75px 170px 95px 175px;
-	height: 408;
+	margin: 0 auto -10ppx auto;
+	padding: 80px 40px 100px 40px;
 	display: flex;
-	flex-direction: row;
 	justify-content:center;
-  }
-  .about-picture{
-	padding: 5px;
-	/* width: 300px;
-    height: 408px; */
-
-  }
-  .about-text-block{
-	padding: 5px;
+	column-gap: 105px;
   }
   h2{
 	font-family: "Georgia";
@@ -195,7 +183,13 @@ body {
 	letter-spacing: 0.06em;
 	color: var(--color-dark-l);
 }
-  .about-text{
+.about-picture{
+	padding: 0;
+
+}  
+.about-text{
+	width: 430px;
+	padding: -20px 0 0 0;
 	font-family: "Arial";
 	font-weight: 400;
 	font-size: 15px;
@@ -207,12 +201,13 @@ body {
   .pets{
 	width: 100%;
 	height: 877px;
+	margin: 0 auto;
 	background: var(--color-light-l);
   }
   .pets-content{
 	max-width: var(--content-width);
 	padding: 50px 0 100px 0;
-	margin: auto;
+	margin: 0 auto;
 	/* display: flex;
 	flex-direction: column;
 	justify-content:flex-start; */
@@ -292,11 +287,12 @@ body {
    }
    .help{
 	width: 100%;
-	height: 498px;
+	height: 611px;
+	margin: 0 auto - 10px auto;
   }
   .help-content{
 	max-width: var(--content-width);
-	margin: 77px auto auto auto;
+	margin: 0 auto;
   }
   .centered{
 	text-align: center;
@@ -326,11 +322,12 @@ body {
   .donation{
 	height: 462px;
 	width: 100%;
+	margin: 0 auto;
 	background: var(--color-light-l);
 }
 .donation-content{
 	max-width: var(--content-width);
-	margin: 40px 20px 40px 140px;
+	margin: 0 20px 0 140px;
 	padding: 40px 70px 0 25px;
 	display:flex;
 	justify-content: space-between;
