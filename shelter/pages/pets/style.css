@@ -180,7 +180,7 @@ margin: 0 auto 10px auto;
    }
    .arrow-navigation{
 	text-align: center;
-	margin-top: -20px;
+	margin-top: 0;
    }
    .nav-list-arrows {
     display: flex;
