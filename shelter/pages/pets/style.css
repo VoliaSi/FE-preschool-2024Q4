@@ -42,8 +42,12 @@ html {
 body{
 width:100%;
 }
-a {
+   a {
     text-decoration: none;
+	color: var(--color-light-s);
+   }
+   a:visited{
+	color: var(----color-primary-light);
    }
 .page{
 	margin: 0 auto;
@@ -100,6 +104,7 @@ header{
 	text-decoration-line: underline;
 	text-underline-offset: 8px;
 	text-decoration-thickness: 2px;
+	text-decoration-color: var(--color-primary-light)
   }
 
 .nav-item {
@@ -111,6 +116,13 @@ header{
 	letter-spacing: 0.01rem;
 	color: #545454;
 }
+
+  .nav-list li:not(:first-child):hover{
+	text-decoration-line: underline;
+	text-underline-offset: 8px;
+	text-decoration-thickness: 2px;
+	color: var(--color-primary-light)
+  }
 main {
 	width: 100%;
 	overflow: hidden;

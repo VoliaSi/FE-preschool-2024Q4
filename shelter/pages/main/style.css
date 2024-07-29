@@ -45,10 +45,9 @@ body {
   a {
     text-decoration: none;
 	color: var(--color-light-s);
-	color: var(--color-primary-light);
    }
    a:visited{
-	color: var(--color-light-s);
+	color: var(----color-primary-light);
    }
   .page{
 	margin: 0;
@@ -118,7 +117,7 @@ body {
 	text-decoration-line: underline;
 	text-underline-offset: 8px;
 	text-decoration-thickness: 2px;
-	color: var(--color-primary-light)
+	text-decoration-color: var(--color-primary-light)
   }
   .nav-list li:not(:first-child):hover{
 	text-decoration-line: underline;
