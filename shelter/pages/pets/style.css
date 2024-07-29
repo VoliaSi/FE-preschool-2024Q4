@@ -117,7 +117,7 @@ header{
 	color: #545454;
 }
 
-  .nav-list li:not(:first-child):hover{
+  .nav-list li:hover{
 	text-decoration-line: underline;
 	text-underline-offset: 8px;
 	text-decoration-thickness: 2px;
