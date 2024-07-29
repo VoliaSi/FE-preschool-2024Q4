@@ -44,6 +44,11 @@ body {
   }
   a {
     text-decoration: none;
+	color: var(--color-light-s);
+	color: var(--color-primary-light);
+   }
+   a:visited{
+	color: var(--color-light-s);
    }
   .page{
 	margin: 0;
@@ -109,12 +114,18 @@ body {
     justify-content:space-between;
     list-style: none;
   }
-.nav-list:first-child{
+  .nav-list li:first-child {
 	text-decoration-line: underline;
 	text-underline-offset: 8px;
 	text-decoration-thickness: 2px;
+	color: var(--color-primary-light)
   }
-
+  .nav-list li:not(:first-child):hover{
+	text-decoration-line: underline;
+	text-underline-offset: 8px;
+	text-decoration-thickness: 2px;
+	color: var(--color-primary-light)
+  }
 .nav-item {
 	padding: 20px;
     font-family: "Arial-narrow";
