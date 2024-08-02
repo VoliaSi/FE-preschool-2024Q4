@@ -132,10 +132,7 @@ main {
 .pets-content{
 	max-width: var(--content-width);
 	margin: 0 auto;
-	padding: 60px 40px 100px 40px;
-}
-.pets-heading{
-	margin-top: -10px;
+	padding: 50px 40px 40px 40px;
 }
   h2{
 	text-align: center;
@@ -147,8 +144,8 @@ main {
 	color: var(--color-dark-l);
 }
   .slider{
-margin: 10 auto 10px auto;
-	padding: 25px 5px 5px 3px;
+margin: 0 auto;
+	padding: 35px 5px 5px 3px;
 	display: flex;
 	justify-content:space-between;
 	text-align: center;
@@ -196,7 +193,7 @@ margin: 10 auto 10px auto;
    }
    .arrow-navigation{
 	text-align: center;
-	margin-top: 0;
+	padding: 20px;
    }
    .nav-list-arrows {
 	padding: 20px;
