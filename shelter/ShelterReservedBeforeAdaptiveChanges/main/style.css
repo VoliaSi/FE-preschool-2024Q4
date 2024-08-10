@@ -251,6 +251,7 @@ h2 {
 
 .pets {
 	width: 100%;
+	height: 877px;
 	margin: 0 auto;
 	background: var(--color-light-l);
 }
