@@ -78,6 +78,18 @@ header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	@media (width <=860px) {
+		padding: 15px 20px 30px 20px;
+	}
+
+	@media (width <=400px) {
+		padding: 25px 5px 20px 5px;
+		justify-content: center;
+		justify-items: center;
+		column-gap: 60px;
+		align-items: center;
+	}
 }
 
 .logo {
@@ -85,6 +97,10 @@ header {
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+
+	@media (width <=700px) {
+		padding-left: 10px;
+	}
 }
 
 .logo_title {
@@ -112,6 +128,10 @@ header {
 	display: flex;
 	justify-content: space-between;
 	list-style: none;
+
+	@media (width <=760px) {
+		display: none;
+	}
 }
 
 .nav-list li:nth-child(2) {
@@ -143,6 +163,63 @@ header {
 	color: var(--color-primary-light)
 }
 
+.hamburger-line {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	background-color: black;
+	border-radius: 5px;
+	width: 100%;
+	height: 3px;
+}
+
+.hamburger {
+	display: none;
+	position: relative;
+	width: 31px;
+	height: 25px;
+
+	@media (width <=760px) {
+		display: inline-block;
+	}
+
+	&::before {
+		content: "";
+		display: inline-block;
+		position: absolute;
+		background-color: black;
+		border-radius: 5px;
+		width: 100%;
+		height: 3px;
+		top: 0;
+		left: 0;
+	}
+
+	&::after {
+		content: "";
+		display: inline-block;
+		position: absolute;
+		background-color: black;
+		border-radius: 5px;
+		width: 100%;
+		height: 3px;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+.hamburger__line {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	background-color: black;
+	border-radius: 5px;
+	width: 100%;
+	height: 3px;
+	top: calc(50% - 1.5px);
+	left: 0;
+}
+
 main {
 	width: 100%;
 	margin: 0 auto;
@@ -153,6 +230,10 @@ main {
 	max-width: var(--content-width);
 	margin: 0 auto;
 	padding: 50px 40px 50px 40px;
+
+	@media (width <=500px) {
+		padding: 10px 12px 30px 12px;
+	}
 }
 
 .page-title {
@@ -164,6 +245,11 @@ main {
 	line-height: 130%;
 	letter-spacing: 0.06em;
 	color: var(--color-dark-l);
+
+
+	@media (width <=478px) {
+		font-size: 25px;
+	}
 }
 
 .slider {
@@ -183,8 +269,12 @@ main {
 	grid-template-columns: repeat(auto-fit, 270px);
 	/* grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); */
 
-	@media (width <=900px) {
+	@media (width <=900px) and (width >400px) {
 		padding-top: 0;
+	}
+
+	@media (width <=400px) {
+		padding-top: 15px;
 	}
 }
 
@@ -200,6 +290,12 @@ main {
 
 .extra {
 	@media (width <=900px) {
+		display: none;
+	}
+}
+
+.not-mobile {
+	@media (width <=380px) {
 		display: none;
 	}
 }
@@ -245,7 +341,11 @@ main {
 	padding: 10px;
 
 	@media (width <=900px) {
-		padding: 0 10px;
+		padding: 0;
+	}
+
+	@media (width <=380px) {
+		padding-top: 10px;
 	}
 }
 
@@ -259,6 +359,11 @@ main {
 		margin: 0;
 		padding-bottom: 15px;
 	}
+
+	@media (width <=400px) {
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 
 .nav-item-arrows {
@@ -269,6 +374,10 @@ main {
 	line-height: 160%;
 	letter-spacing: 0.01rem;
 	color: #545454;
+
+	@media (width <=460px) {
+		padding: 2px;
+	}
 }
 
 .arrow {
@@ -307,19 +416,35 @@ footer {
 	flex-wrap: wrap;
 
 	@media (width <=1063px) {
-		padding-top: 0;
+		padding: 10px 30px 0 30px;
 		display: flex;
 		justify-content: center;
 		justify-items: center;
+	}
+
+	@media (width <=500px) {
+		padding-top: 20px;
+		padding-right: 0;
+		padding-bottom: 0;
+		padding-left: 0;
+
+		/* display: flex;
+		justify-content: center;
+		justify-items: center; */
 	}
 }
 
 .contacts-grid {
 	margin: 0;
-	padding: 16px 0 50px 2px;
+	padding: 6px 0 50px 2px;
 	display: flex;
 	flex-direction: column;
 	row-gap: 30px;
+
+	@media (width <=476px) {
+		padding-top: 0;
+		padding-bottom: 15px;
+	}
 }
 
 h3 {
@@ -334,6 +459,27 @@ h3 {
 	text-align: left;
 }
 
+.footerh3 {
+	@media (width <=476px) {
+		font-size: 25px;
+		text-align: center;
+	}
+}
+
+.icon-and-info {
+	width: 340px;
+	height: 46px;
+	display: flex;
+	justify-content: flex-start;
+	column-gap: 10px;
+	align-items: center;
+
+	@media (width <=476px) {
+		width: 300;
+		justify-content: center;
+	}
+}
+
 .footer-text {
 	font-family: "Georgia";
 	font-weight: 400;
@@ -344,16 +490,21 @@ h3 {
 	text-indent: 10px;
 }
 
-.icon-and-info {
-	width: 340px;
-	height: 46px;
-	display: flex;
-	justify-content: flex-start;
-	column-gap: 10px;
-	align-items: center;
-}
-
 .picture {
 	margin: 0;
 	padding: 10px 0 0 0;
+	text-align: center;
+	/* object-fit: fill;
+	object-position: center; */
+
+	@media (width <=500px) {
+		width: 260px;
+	}
+}
+
+.footer-puppy {
+	@media (width <=500px) {
+		width: 260px;
+		height: 290;
+	}
 }
