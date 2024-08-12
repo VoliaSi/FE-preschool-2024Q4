@@ -269,7 +269,7 @@ header {
 	/* column-gap: 10px; */
 
 	@media (width <=1000px) {
-		padding-top: 20px;
+		padding-top: 30px;
 		grid-template-columns: 1fr;
 		/* justify-content: center;
 		justify-items: center; */
@@ -279,7 +279,7 @@ header {
 .start-text {
 	/* baselwidth: 460px; */
 	/* height: 310px; */
-	padding: 163px 0 0 0;
+	padding: 165px 0 0 0;
 
 	@media (width <=1000px) {
 		padding-top: 0;
@@ -295,8 +295,7 @@ header {
 	color: var(--color-light-xl);
 
 	@media (width <=1000px) {
-		padding-left: 115px;
-		padding-right: 105px;
+		padding-left: 130px;
 	}
 }
 
@@ -310,8 +309,8 @@ header {
 	color: var(--color-dark-s);
 
 	@media (width <=1000px) {
-		padding-left: 115px;
-		padding-right: 105px;
+		padding-left: 130px;
+		padding-right: 120px;
 	}
 }
 
@@ -323,7 +322,8 @@ header {
 	border-radius: 100px;
 
 	@media (width <=1000px) {
-		margin-left: 300px;
+		margin-top: 40px;
+		margin-left: 250px;
 	}
 }
 
@@ -345,8 +345,9 @@ header {
 	@media (width <=900px) {
 		width: 569px;
 		height: 593px;
-		padding-left: 115px;
-		padding-right: 115px;
+		padding-top: 100px;
+		padding-left: 140px;
+		padding-right: 5px;
 	}
 }
 
@@ -369,6 +370,15 @@ header {
 	display: flex;
 	justify-content: center;
 	column-gap: 105px;
+
+	@media (width <=900px) {
+		padding-top: 48px;
+		flex-direction: column-reverse;
+		column-gap: 0;
+		align-items: center;
+		align-content: center;
+		row-gap: 40px;
+	}
 }
 
 h2 {
