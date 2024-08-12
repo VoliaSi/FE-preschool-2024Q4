@@ -129,7 +129,7 @@ header {
 	justify-content: space-between;
 	list-style: none;
 
-	@media (width <=760px) {
+	@media (width <=767px) {
 		display: none;
 	}
 }
@@ -179,7 +179,7 @@ header {
 	width: 31px;
 	height: 25px;
 
-	@media (width <=760px) {
+	@media (width <=767px) {
 		display: inline-block;
 	}
 
