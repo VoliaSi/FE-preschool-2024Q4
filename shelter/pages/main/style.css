@@ -141,7 +141,7 @@ header {
 	justify-content: space-between;
 	list-style: none;
 
-	@media (width <=767px) {
+	@media (width <=768px) {
 		display: none;
 	}
 }
@@ -198,7 +198,7 @@ header {
 	width: 31px;
 	height: 25px;
 
-	@media (width <=767px) {
+	@media (width <=768px) {
 		display: inline-block;
 	}
 
@@ -405,7 +405,7 @@ h2 {
 
 .pets-content {
 	max-width: var(--content-width);
-	padding: 50px 10px 80px 10px;
+	padding: 50px 0 80px 0;
 	margin: 0 auto;
 	/* display: flex;
 	flex-direction: column;
@@ -433,7 +433,14 @@ h2 {
 	padding: 0;
 	border-radius: 100px;
 	border: 2px solid var(--color-primary);
+}
 
+.right {
+	margin-right: 5px;
+}
+
+.left {
+	margin-left: 5px;
 }
 
 .arrow_text {
@@ -469,7 +476,7 @@ h2 {
 }
 
 .extra {
-	@media (width <=900px) {
+	@media (width <=1217px) {
 		display: none;
 	}
 }
@@ -575,7 +582,7 @@ h2 {
 	justify-content: flex-end;
 	column-gap: 10px;
 
-	@media (width <=900px) {
+	@media (width <=1193px) {
 		padding: 65px 130px 95px 130px;
 		flex-direction: column-reverse;
 		justify-content: center;
