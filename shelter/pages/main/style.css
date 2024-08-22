@@ -739,4 +739,10 @@ h3 {
 		width: 260px;
 		height: 290;
 	}
+
 }
+
+/* .help__title {
+	font-size: calc(25px + (35 - 25) * ((100vw - 320px) / (640 - 320)));
+	margin-top: calc(42px + (80 - 42) * ((100vw - 320px) / (640 - 320)));
+  } */
