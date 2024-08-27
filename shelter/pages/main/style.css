@@ -308,6 +308,12 @@ header {
 	height: 52px;
 	background: var(--color-primary);
 	border-radius: 100px;
+	font-family: "Georgia";
+	font-weight: 400;
+	font-size: 17px;
+	line-height: 130%;
+	letter-spacing: 0.06em;
+	color: var(--color-dark-3xl);
 
 	@media (width <=1000px) {
 		margin-top: 40px;
@@ -507,6 +513,11 @@ h2 {
 	line-height: 130%;
 	letter-spacing: 0.06rem;
 	color: var(--color-dark-3xl);
+}
+
+.pets-button-wrapper {
+	margin: 0 auto;
+	text-align: center;
 }
 
 .pets-button {
