@@ -1,12 +1,14 @@
 const burgerMenu = document.getElementById('burgermenu');
 const navlist = document.getElementById('navlist');
 const body = document.body;
+const overlaydark = document.getElementById('overlaydark');
 console.log(navlist);
 burgerMenu.addEventListener('click', (event) => {
     console.log(event);
     burgerMenu.classList.toggle('rotated');
     navlist.classList.toggle('active');
     body.classList.toggle('modal-open');
+    overlaydark.classList.toggle('overlay-toggled');
 });
 burgerMenu.addEventListener('click', (event) => {
     console.log(event);
@@ -21,6 +23,7 @@ window.addEventListener('click', function (e) {
         burgerMenu.classList.remove('rotated');
         navlist.classList.remove('active');
         body.classList.remove('modal-open');
+
     }
 })
 const contacts_link = document.getElementById('contacts_link');
