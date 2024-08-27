@@ -23,7 +23,7 @@ window.addEventListener('click', function (e) {
         burgerMenu.classList.remove('rotated');
         navlist.classList.remove('active');
         body.classList.remove('modal-open');
-
+        overlaydark.classList.toggle('overlay-toggled');
     }
 })
 const contacts_link = document.getElementById('contacts_link');
@@ -33,6 +33,7 @@ contacts_link.addEventListener('click', (event) => {
         burgerMenu.classList.toggle('rotated');
         navlist.classList.toggle('active');
         body.classList.remove('modal-open');
+        overlaydark.classList.toggle('overlay-toggled');
         location.href = "index.html#contacts";
     }
 

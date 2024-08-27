@@ -16,29 +16,29 @@
         <header class="header">
             <div class="header-container">
                 <a href="#no_scroll">
-
                     <div class="logo">
                         <div>
                             <h1 class="logo_title">Cozy House</h1>
                         </div>
-
                         <div class="logo_subtitle">
                             Shelter for pets in Boston
                         </div>
                     </div>
                 </a>
+                <div class="overlay-dark" id="overlaydark"></div>
 
-                <nav class="navigation">
-                    <span class="hamburger"><span class="hamburger__line"></span></span>
+                <nav class="navigation" id="navlist">
+
                     <ul class="nav-list">
                         <li class="nav-item">About the shelter</li>
 
                         <li class="nav-item"><a href="../pets/index.html">Our pets</a></li>
 
-                        <li class="nav-item"><a href="#helpus">Help the shelter</a></li>
-                        <li class="nav-item"><a href="#contacts">Contacts</a></li>
+                        <li class="nav-item" id="helpus_link"><a href="#helpus">Help the shelter</a></li>
+                        <li class="nav-item" id="contacts_link"><a href="#contacts">Contacts</a></li>
                     </ul>
                 </nav>
+                <div class="burger" id="burgermenu"><span class="burger__line"></span></div>
             </div>
 
         </header>
@@ -51,13 +51,13 @@
                         We offer to give a chance to a little and nice puppy with an extremely wide and open
                         heart.
                         He or she will love you more than anybody else in the world, you will see!</div>
-                    <a href="#friends">
-                        <button class="start-button">
-                            <!-- <div class="start-button-text"> -->
-                            Make a friend
-                            <!-- </div> -->
-                        </button>
-                    </a>
+                    <!-- <a href="#friends"> -->
+                    <button class="start-button" onclick="location.href='#friends'">
+                        <!-- <div class="start-button-text"> -->
+                        Make a friend
+                        <!-- </div> -->
+                    </button>
+                    <!-- </a> -->
                 </div>
                 <div class="start-picture">
                     <img class="start-picture-content" src="../../images/start-screen-puppy.png" alt="Puppy">
@@ -99,15 +99,15 @@
             </div>
 
             <div class="pets-slides-container">
-                <div class="arrow left">
-                    <div class="arrow_text"> &larr;</div>
-                </div>
+                <button class="arrow left">
+                    &larr;
+                </button>
                 <div class="slider">
                     <div class="card">
                         <img src="../../images/pets-katrine.png" alt="Katrine">
                         <div class="nickname">Katrine</div>
                         <button class="button-section">
-                            <div class="button-text">Learn more</div>
+                            Learn more
                         </button>
 
                     </div>
@@ -115,7 +115,7 @@
                         <img src="../../images/pets-jennifer.png" alt="Jennifer">
                         <div class="nickname">Jennifer</div>
                         <button class="button-section">
-                            <div class="button-text">Learn more</div>
+                            Learn more
                         </button>
                     </div>
                 </div>
@@ -123,21 +123,20 @@
                     <img src="../../images/pets-woody.png" alt="Woody">
                     <div class="nickname">Woody</div>
                     <button class="button-section">
-                        <div class="button-text">Learn more</div>
+                        Learn more
                     </button>
                 </div>
                 <button class="arrow right">
-                    <div class="arrow_text"> &rarr;</div>
+                    &rarr;
                 </button>
             </div>
             <div class="pets-button-wrapper">
-                <a href="../pets/index.html">
-                    <button class="pets-button">
-                        <!-- <div class="start-button-text"> -->
-                        Get to know the rest
-                        <!-- </div> -->
-                    </button>
-                </a>
+                <!-- <button type="reset" class="pets-button" formaction="../pets/index.html"> -->
+                <!-- <div class="start-button-text"> -->
+                <button class="pets-button" onclick="location.href='../pets/index.html'">
+                    Get to know the rest
+                    <!-- </div> -->
+                </button>
             </div>
 
         </div>
@@ -246,8 +245,8 @@
         </div>
 
     </footer>
-    <scrip src="../../js/index.js">
-        </script>
+    <script src="../../js/index-main.js">
+    </script>
 </body>
 
 </html>

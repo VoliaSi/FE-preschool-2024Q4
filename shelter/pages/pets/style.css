@@ -469,15 +469,13 @@ main {
 	/* or inline-flex */
 	align-items: center;
 	justify-content: center;
+	color: var(--color-dark-3xl);
 }
 
 .active-arrow {
 	background: var(--color-primary);
 }
 
-.arrow_text {
-	color: var(--color-dark-3xl);
-}
 
 footer {
 	margin: 0 auto;
