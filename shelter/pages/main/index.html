@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="preload" href="../../fonts/georgia/georgia-regular.ttf" as="font">
     <link rel="preload" href="../../fonts/arial/arial-narrow.ttf" as="font"> -->
+
+    <!-- <link rel="preload" href="../../fonts/arial/arial-narrow.ttf" as="pets"> -->
+
     <script src="index.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -16,29 +19,29 @@
         <header class="header">
             <div class="header-container">
                 <a href="#no_scroll">
-
                     <div class="logo">
                         <div>
                             <h1 class="logo_title">Cozy House</h1>
                         </div>
-
                         <div class="logo_subtitle">
                             Shelter for pets in Boston
                         </div>
                     </div>
                 </a>
+                <div class="overlay-dark" id="overlaydark"></div>
 
-                <nav class="navigation">
-                    <span class="hamburger"><span class="hamburger__line"></span></span>
+                <nav class="navigation" id="navlist">
+
                     <ul class="nav-list">
                         <li class="nav-item">About the shelter</li>
 
                         <li class="nav-item"><a href="../pets/index.html">Our pets</a></li>
 
-                        <li class="nav-item"><a href="#helpus">Help the shelter</a></li>
-                        <li class="nav-item"><a href="#contacts">Contacts</a></li>
+                        <li class="nav-item" id="helpus_link"><a href="#helpus">Help the shelter</a></li>
+                        <li class="nav-item" id="contacts_link"><a href="#contacts">Contacts</a></li>
                     </ul>
                 </nav>
+                <div class="burger" id="burgermenu"><span class="burger__line"></span></div>
             </div>
 
         </header>
@@ -51,13 +54,13 @@
                         We offer to give a chance to a little and nice puppy with an extremely wide and open
                         heart.
                         He or she will love you more than anybody else in the world, you will see!</div>
-                    <a href="#friends">
-                        <div class="start-button">
-                            <div class="start-button-text">
-                                Make a friend
-                            </div>
-                        </div>
-                    </a>
+                    <!-- <a href="#friends"> -->
+                    <button class="start-button" onclick="location.href='#friends'">
+                        <!-- <div class="start-button-text"> -->
+                        Make a friend
+                        <!-- </div> -->
+                    </button>
+                    <!-- </a> -->
                 </div>
                 <div class="start-picture">
                     <img class="start-picture-content" src="../../images/start-screen-puppy.png" alt="Puppy">
@@ -99,44 +102,231 @@
             </div>
 
             <div class="pets-slides-container">
-                <div class="arrow">
-                    <div class="arrow_text"> &larr;</div>
+                <div><button class="arrow-left">
+                        &larr;
+                    </button>
                 </div>
-                <div class="slider">
-                    <div class="card">
-                        <img src="../../images/pets-katrine.png" alt="Katrine">
-                        <div class="nickname">Katrine</div>
-                        <div class="button-section">
-                            <div class="button-text">Learn more</div>
+                <div class="slider-wrapper">
+                    <div class="slider_line">
+                        <!-- <div class="slider"> -->
+
+
+                        <div class="card" id="card1">
+                            <!-- <img src="../../images/pets-jennifer.png" alt="Jennifer">
+                            <div class="nickname">Jennifer</div>
+                            <button class="button-section">
+                                Learn more
+                            </button> -->
                         </div>
 
-                    </div>
-                    <div class="card">
-                        <img src="../../images/pets-jennifer.png" alt="Jennifer">
-                        <div class="nickname">Jennifer</div>
-                        <div class="button-section">
-                            <div class="button-text">Learn more</div>
+                        <div class="card extra">
+                            <img src="../../images/pets-woody.png" alt="Woody">
+                            <div class="nickname">Woody</div>
+                            <button class="button-section">
+                                Learn more
+                            </button>
                         </div>
+                        <div class="card">
+                            <img src="../../images/pets-jennifer.png" alt="Jennifer">
+                            <div class="nickname">Jennifer</div>
+                            <button class="button-section">
+                                Learn more
+                            </button>
+                        </div>
+                        <div class="card" id="card4">
+                            <img src="../../images/pets-jennifer.png" alt="Jennifer">
+                            <div class="nickname">Jennifer</div>
+                            <button class="button-section">
+                                Learn more
+                            </button>
+                        </div>
+                        <div class="card" id="card5">
+                            <!-- <img src="../../images/pets-katrine.png" alt="Katrine">
+                            <div class="nickname">Katrine</div>
+                            <button class="button-section">
+                                Learn more
+                            </button> -->
+
+                        </div>
+                        <div class="card">
+                            <img src="../../images/pets-jennifer.png" alt="Jennifer">
+                            <div class="nickname">Jennifer</div>
+                            <button class="button-section">
+                                Learn more
+                            </button>
+                        </div>
+
+                        <div class="card extra">
+                            <img src="../../images/pets-woody.png" alt="Woody">
+                            <div class="nickname">Woody</div>
+                            <button class="button-section">
+                                Learn more
+                            </button>
+                        </div>
+                        <div class="card">
+                            <img src="../../images/pets-jennifer.png" alt="Jennifer">
+                            <div class="nickname">Jennifer</div>
+                            <button class="button-section">
+                                Learn more
+                            </button>
+                        </div>
+                        <div class="card">
+                            <img src="../../images/pets-katrine.png" alt="Katrine">
+                            <div class="nickname">Katrine</div>
+                            <button class="button-section">
+                                Learn more
+                            </button>
+
+                        </div>
+                        <!-- <div class="card1"></div>
+                            <div class="card2"></div>
+                            <div class="card3"></div>
+
+                            <div class="card4"></div>
+                            <div class="card5"></div>
+                            <div class="card6"></div>
+
+                            <div class="card7"></div>
+                            <div class="card8"></div>
+                            <div class="card9"></div> -->
+                        <!-- </div> -->
+
+
+                        <!-- <div class="sliderr-curr"></div>
+                            <div class="sliderr-next"></div> -->
+
+
+                        <!-- <div class="card" id="1">
+
+                                <img src="../../images/pets-katrine.png" alt="Katrine">
+                                <div class="nickname">Katrine</div> -->
+                        <!-- <button class="button-section" id="existing-button">
+                                    Learn more
+                                </button> -->
+
+                        <!-- </div> -->
+
+                        <!-- <div class="card">
+                                <img src="../../images/pets-katrine.png" alt="Katrine">
+                                <div class="nickname">Katrine</div>
+                                <button class="button-section">
+                                    Learn more
+                                </button>
+
+                            </div>
+                            <div class="card">
+                                <img src="../../images/pets-jennifer.png" alt="Jennifer">
+                                <div class="nickname">Jennifer</div>
+                                <button class="button-section">
+                                    Learn more
+                                </button>
+                            </div>
+
+                            <div class="card extra">
+                                <img src="../../images/pets-woody.png" alt="Woody">
+                                <div class="nickname">Woody</div>
+                                <button class="button-section">
+                                    Learn more
+                                </button>
+                            </div>
+                            <div class="card">
+                                <img src="../../images/pets-jennifer.png" alt="Jennifer">
+                                <div class="nickname">Jennifer</div>
+                                <button class="button-section">
+                                    Learn more
+                                </button>
+                            </div>
+                            <div class="card">
+                                <img src="../../images/pets-jennifer.png" alt="Jennifer">
+                                <div class="nickname">Jennifer</div>
+                                <button class="button-section">
+                                    Learn more
+                                </button>
+                            </div>
+                            <div class="card">
+                                <img src="../../images/pets-katrine.png" alt="Katrine">
+                                <div class="nickname">Katrine</div>
+                                <button class="button-section">
+                                    Learn more
+                                </button>
+
+                            </div>
+                            <div class="card">
+                                <img src="../../images/pets-jennifer.png" alt="Jennifer">
+                                <div class="nickname">Jennifer</div>
+                                <button class="button-section">
+                                    Learn more
+                                </button>
+                            </div>
+
+                            <div class="card extra">
+                                <img src="../../images/pets-woody.png" alt="Woody">
+                                <div class="nickname">Woody</div>
+                                <button class="button-section">
+                                    Learn more
+                                </button>
+                            </div>
+                            <div class="card">
+                                <img src="../../images/pets-jennifer.png" alt="Jennifer">
+                                <div class="nickname">Jennifer</div>
+                                <button class="button-section">
+                                    Learn more
+                                </button>
+                            </div>
+
+                            <div class="card">
+                                <img src="../../images/pets-katrine.png" alt="Katrine">
+                                <div class="nickname">Katrine</div>
+                                <button class="button-section">
+                                    Learn more
+                                </button>
+
+                            </div>
+                            <div class="card">
+                                <img src="../../images/pets-jennifer.png" alt="Jennifer">
+                                <div class="nickname">Jennifer</div>
+                                <button class="button-section">
+                                    Learn more
+                                </button>
+                            </div>
+
+                            <div class="card extra">
+                                <img src="../../images/pets-woody.png" alt="Woody">
+                                <div class="nickname">Woody</div>
+                                <button class="button-section">
+                                    Learn more
+                                </button>
+                            </div>
+
+                            <div class="card">
+                                <img src="../../images/pets-jennifer.png" alt="Jennifer">
+                                <div class="nickname">Jennifer</div>
+                                <button class="button-section">
+                                    Learn more
+                                </button>
+                            </div> -->
+
+
                     </div>
                 </div>
-                <div class="card extra">
-                    <img src="../../images/pets-woody.png" alt="Woody">
-                    <div class="nickname">Woody</div>
-                    <div class="button-section">
-                        <div class="button-text">Learn more</div>
-                    </div>
+                <div>
+                    <button class="arrow-right">
+                        &rarr;
+                    </button>
+
                 </div>
-                <div class="arrow">
-                    <div class="arrow_text"> &rarr;</div>
-                </div>
+
+
             </div>
-            <a href="../pets/index.html">
-                <div class="pets-button">
-                    <div class="start-button-text">
-                        Get to know the rest
-                    </div>
-                </div>
-            </a>
+            <div class="pets-button-wrapper">
+                <!-- <button type="reset" class="pets-button" formaction="../pets/index.html"> -->
+                <!-- <div class="start-button-text"> -->
+                <button class="pets-button" onclick="location.href='../pets/index.html'">
+                    Get to know the rest
+                    <!-- </div> -->
+                </button>
+            </div>
+
         </div>
     </section>
     <section class="help" id="helpus">
@@ -243,6 +433,8 @@
         </div>
 
     </footer>
+    <script src="../../js/index-main.js">
+    </script>
 </body>
 
 </html>
