@@ -60,7 +60,7 @@ window.addEventListener('click', function (e) {
         !document.getElementById('burgermenu').contains(e.target)) {
         togglePopupWindow();
     }
-})
+});
 
 function togglePopupWindow() {
     mainBurgerMenu.classList.toggle('rotated');
@@ -175,35 +175,32 @@ let pets = [
     }
 ];
 
-console.log("pets " + pets[0].name);
+// console.log("pets " + pets[0].name);
 // console.log("pet " + pets[0]);
 
 // import pets from '../../resources/pets.json';
 // console.log("petS " + pets[0]);
 
 // let pets = ""
-function createCard(i, cardId) {
-    const elementPicture = new Image();
-    elementPicture.src = pets[i].img;
-    elementPicture.alt = pets[i].name;
-    document.getElementById(cardId).appendChild(elementPicture);
+// function createCard(i, cardId) {
+//     const elementPicture = new Image();
+//     elementPicture.src = pets[i].img;
+//     elementPicture.alt = pets[i].name;
+//     document.getElementById(cardId).appendChild(elementPicture);
 
 
-    const elementNickname = document.createElement("div");
-    elementNickname.classList.add("nickname");
-    elementNickname.textContent = pets[i].name;
-    console.log(document.getElementById(cardId) + "to be created")
-    document.getElementById(cardId).appendChild(elementNickname);
+//     const elementNickname = document.createElement("div");
+//     elementNickname.classList.add("nickname");
+//     elementNickname.textContent = pets[i].name;
+//     console.log(document.getElementById(cardId) + "to be created")
+//     document.getElementById(cardId).appendChild(elementNickname);
 
-    const elementButton = document.createElement("button");
-    elementButton.classList.add("button-section");
-    elementButton.textContent = "Learn more";
-    document.getElementById(cardId).appendChild(elementButton);
+//     const elementButton = document.createElement("button");
+//     elementButton.classList.add("button-section");
+//     elementButton.textContent = "Learn more";
+//     document.getElementById(cardId).appendChild(elementButton);
 
-}
-
-createCard(1, "card1");
-createCard(5, "card5");
+// }
 
 // const elementPicture = new Image();
 // elementPicture.src = `../../images/pets-katrine.png`;
@@ -225,25 +222,28 @@ createCard(5, "card5");
 
 
 
-let currentCards = [];
-let leftCards = [];
-let rightcards = [];
-console.log("left cards    " + leftCards);
+// let currentCards = [];
+// let leftCards = [];
+// let rightcards = [];
 
-let randomNumber = Math.floor(Math.random() * 8);
+// let randomNumber = Math.floor(Math.random() * 8);
 
-const slider = document.querySelector('.slider-wrapper');
-const sliderImages = document.querySelectorAll('.card');
-const sliderLine = document.querySelector('.slider_line');
-console.log(sliderLine.offsetWidth + "width");
+// const slider = document.querySelector('.slider-wrapper');
+// const sliderImages = document.querySelectorAll('.card');
+const SLIDER_LINE = document.querySelector('.slider_line');
+// console.log(sliderLine.offsetWidth + "width");
 
 const sliderBtnNext = document.querySelector('.arrow-right');
 const sliderBtnPrev = document.querySelector('.arrow-left');
 
 
-let silderWidth = slider.offsetWidth;
-sliderLine.style.transform = `translateX(${-silderWidth}px)`;
-console.log(`translateX(${silderWidth}px)` + " sdvig");
+// let silderWidth = slider.offsetWidth;
+
+// console.log(silderWidth + "slider width");
+
+// console.log("css slider wrapper width");
+// sliderLine.style.transform = `translateX(${-silderWidth}px)`;
+// console.log(`translateX(${silderWidth}px)` + " sdvig");
 
 let sliderCount = 1;
 let rightCount = 0;
@@ -253,45 +253,53 @@ sliderBtnNext.addEventListener('click', rightSlide);
 
 function rightSlide() {
     leftCount = 0;
-
-    if (!rightcards.length > 0) {
-        for (let j = 0; j < rightcards.length; j++) {
-            let generatedCardNumber = currentCards[0];
-            while (currentCards.includes(generatedCardNumber)) {
-                generatedCardNumber = randomNumber;
-            }
-            rightcards[j] = generatedCardNumber;
-        }
-    }
-
-
+    SLIDER_LINE.classList.add("transition-right");
     sliderCount++;
-    console.log(sliderCount);
-    console.log(`translateX(${silderWidth}px)` + " sdvig");
-    rollSlider();
-
-    // if (sliderCount >= sliderImages.length / 3) {
-    //     sliderCount = 0;
-    // }
-
 }
 
+// if (!rightcards.length > 0) {
+//     for (let j = 0; j < rightcards.length; j++) {
+//         let generatedCardNumber = currentCards[0];
+//         while (currentCards.includes(generatedCardNumber)) {
+//             generatedCardNumber = randomNumber;
+//         }
+//         rightcards[j] = generatedCardNumber;
+//     }
+// }
 
 
-sliderBtnPrev.addEventListener('click', prevSlide);
+// console.log(sliderCount);
+// console.log(`translateX(${silderWidth}px)` + " sdvig");
+// rollSlider();
 
-function prevSlide() {
+// if (sliderCount >= sliderImages.length / 3) {
+//     sliderCount = 0;
+// }
+
+sliderBtnPrev.addEventListener('click', leftSlide);
+
+function leftSlide() {
     sliderCount--;
-    console.log(sliderCount);
-    console.log(`translateX(${silderWidth}px)` + " sdvig");
-    rollSlider();
-    // if (sliderCount < 0) {
-    //     sliderCount = (sliderImages.length) / 3 - 1;
-    // }
-
+    SLIDER_LINE.classList.add("transition-left");
+    console.log("class added");
 }
 
-function rollSlider() {
-    sliderLine.style.transform = `translateX(${-sliderCount * silderWidth}px)`;
+SLIDER_LINE.addEventListener('animationend', removeTransitionLeft);
+
+function removeTransitionLeft() {
+
+    SLIDER_LINE.classList.remove("transition-left");
+    console.log("animation end");
 }
+// console.log(sliderCount);
+// console.log(`translateX(${silderWidth}px)` + " sdvig");
+
+// rollSlider();
+// if (sliderCount < 0) {
+//     sliderCount = (sliderImages.length) / 3 - 1;
+// }
+
+// function rollSlider() {
+//     sliderLine.style.transform = `translateX(${-sliderCount * silderWidth}px)`;
+// }
 
