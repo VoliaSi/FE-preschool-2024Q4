@@ -152,6 +152,7 @@ header {
 	transition: transform 5s linear;
 
 	@media (width <=767px) {
+		margin-top: -20px;
 		width: 320px;
 		height: 100%;
 		margin-left: 100%;

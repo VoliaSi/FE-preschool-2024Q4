@@ -166,6 +166,7 @@ header {
 	transition: transform 5s linear;
 
 	@media (width <=767px) {
+		margin-top: -20px;
 		width: 320px;
 		height: 100%;
 		margin-left: 100%;
@@ -511,9 +512,35 @@ h2 {
 	justify-content: space-between;
 	text-align: center;
 	background: var(--color-light-l);
+	/* position: relative; */
 }
 
-.arrow {
+/* .arrow {
+	width: 52px;
+	height: 52px;
+	margin: 220px 0 0 0;
+	padding: 0;
+	border-radius: 100px;
+	border: 2px solid var(--color-primary);
+	color: var(--color-dark-3xl);
+} */
+
+.arrow-right {
+	/* position: absolute; */
+	right: 5px;
+	width: 52px;
+	height: 52px;
+	margin: 220px 0 0 0;
+	padding: 0;
+	border-radius: 100px;
+	border: 2px solid var(--color-primary);
+	color: var(--color-dark-3xl);
+
+}
+
+.arrow-left {
+	/* position: absolute; */
+	left: 5px;
 	width: 52px;
 	height: 52px;
 	margin: 220px 0 0 0;
@@ -523,12 +550,10 @@ h2 {
 	color: var(--color-dark-3xl);
 }
 
-.right {
-	margin-right: 5px;
-}
+.arrow-left:hover, .arrow-right:hover {
+	cursor: pointer;
+	background-color: var(--color-primary);
 
-.left {
-	margin-left: 5px;
 }
 
 /* .arrow_text {
@@ -536,11 +561,28 @@ h2 {
 	color: var(--color-dark-3xl);
 } */
 
-.slider {
-	padding: 0 10px;
+.slider-wrapper {
+	width: 100vw - 194px;
+	position: relative;
+	/* top: 0; */
+	/* align-self: center; */
+	overflow: hidden;
+}
+
+.slider_line {
+	/* display: flex;
+	flex-wrap: nowrap; */
+	transition: all 1s;
+	/* }
+
+.slider { */
+	padding: 0;
 	display: flex;
+	/* grid-template-columns: repeat(9, 1fr);
+	column-gap: clamp(10px, (100vw - 194px)/6, 40px); */
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-around;
+	/* column-gap: 0; */
 	text-align: center;
 	background: var(--color-light-l);
 
@@ -550,7 +592,10 @@ h2 {
 }
 
 .card {
-	margin: 30px 43px;
+	/* display: inline-block; */
+	/* margin: 30px 43px; */
+	margin: 30px 47px;
+	padding: 0;
 	border-radius: 9px;
 	width: 270px;
 	height: 435px;
