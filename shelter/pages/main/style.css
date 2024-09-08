@@ -568,23 +568,22 @@ h2 {
 	overflow: hidden;
 }
 
-.slider_line {
+.slider-line {
 	position: relative;
-	left: calc(-100vw + 204px);
+	left: -100%;
 	display: flex;
-	transition: all 1s;
+	transition: all 2s;
 }
 
 .slider {
 
-	max-width: calc(100vw - 204px);
+	width: 100%;
 	margin: 0;
 	padding: 0;
 	display: flex;
 	justify-content: center;
 	text-align: center;
 	background: var(--color-light-l);
-	gap: calс((100vw - 204px - 3*270px)/2);
 
 	@media (width <=900px) {
 		column-gap: 30px;
@@ -593,7 +592,7 @@ h2 {
 
 @keyframes move-left {
 	from {
-		left: calc(-100vw + 204px);
+		left: -100%;
 		/* left: calc(-100vw + 204px); */
 		/* left: -100%; */
 	}
@@ -604,16 +603,29 @@ h2 {
 	}
 }
 
+@keyframes move-right {
+	from {
+		left: -100%;
+		/* left: calc(-100vw + 204px); */
+		/* left: -100%; */
+	}
+
+	to {
+		/* left: 0; */
+		left: -200%;
+	}
+}
+
 .transition-right {
 	animation-name: move-right;
-	animation-duration: 5s;
+	animation-duration: 3s;
 }
 
 
 
 .transition-left {
 	animation-name: move-left;
-	animation-duration: 5s;
+	animation-duration: 3s;
 }
 
 .card {

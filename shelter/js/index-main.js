@@ -6,8 +6,8 @@ const mainOverlaydark = document.getElementById('overlaydark');
 
 const mainBody = document.body;
 
-console.log(mainOverlaydark);
-console.log(mainOverlaydark.tagName);
+// console.log(mainOverlaydark);
+// console.log(mainOverlaydark.tagName);
 
 
 mainBurgerMenu.addEventListener('click', (event) => {
@@ -19,7 +19,7 @@ mainBurgerMenu.addEventListener('click', (event) => {
 });
 
 mainBurgerMenu.addEventListener('click', (event) => {
-    console.log(event);
+    // console.log(event);
     if (event.target.classList.contains('active')) {
         mainNavlist.classList.remove('active');
     }
@@ -29,7 +29,7 @@ mainBurgerMenu.addEventListener('click', (event) => {
 const contacts_link = document.getElementById('contacts_link');
 
 contacts_link.addEventListener('click', (event) => {
-    console.log(event);
+    // console.log(event);
     if (mainNavlist.classList.contains('active')) {
         togglePopupWindow();
         // mainBurgerMenu.classList.remove('rotated');
@@ -44,7 +44,7 @@ contacts_link.addEventListener('click', (event) => {
 const helpus_link = document.getElementById('helpus_link');
 
 helpus_link.addEventListener('click', (event) => {
-    console.log(event);
+    // console.log(event);
     if (mainNavlist.classList.contains('active')) {
         togglePopupWindow();
         // mainBurgerMenu.classList.remove('rotated');
@@ -182,25 +182,29 @@ let pets = [
 // console.log("petS " + pets[0]);
 
 // let pets = ""
-// function createCard(i, cardId) {
-//     const elementPicture = new Image();
-//     elementPicture.src = pets[i].img;
-//     elementPicture.alt = pets[i].name;
-//     document.getElementById(cardId).appendChild(elementPicture);
+function createCard(i, cardId) {
+    const elementPicture = new Image();
+    elementPicture.src = pets[i].img;
+    elementPicture.alt = pets[i].name;
+    cardId.appendChild(elementPicture);
+    // document.getElementById(cardId).appendChild(elementPicture);
 
 
-//     const elementNickname = document.createElement("div");
-//     elementNickname.classList.add("nickname");
-//     elementNickname.textContent = pets[i].name;
-//     console.log(document.getElementById(cardId) + "to be created")
-//     document.getElementById(cardId).appendChild(elementNickname);
+    const elementNickname = document.createElement("div");
+    elementNickname.classList.add("nickname");
+    elementNickname.textContent = pets[i].name;
+    console.log(cardId + "to be created");
+    cardId.appendChild(elementNickname);
+    console.log(elementNickname + pets[i].name + "was appended");
+    // document.getElementById(cardId).appendChild(elementNickname);
 
-//     const elementButton = document.createElement("button");
-//     elementButton.classList.add("button-section");
-//     elementButton.textContent = "Learn more";
-//     document.getElementById(cardId).appendChild(elementButton);
+    const elementButton = document.createElement("button");
+    elementButton.classList.add("button-section");
+    elementButton.textContent = "Learn more";
+    cardId.appendChild(elementButton);
+    // document.getElementById(cardId).appendChild(elementButton);
 
-// }
+}
 
 // const elementPicture = new Image();
 // elementPicture.src = `../../images/pets-katrine.png`;
@@ -230,13 +234,14 @@ let pets = [
 
 // const slider = document.querySelector('.slider-wrapper');
 // const sliderImages = document.querySelectorAll('.card');
-const SLIDER_LINE = document.querySelector('.slider_line');
+const SLIDER_LINE = document.querySelector('.slider-line');
 // console.log(sliderLine.offsetWidth + "width");
 
 const sliderBtnNext = document.querySelector('.arrow-right');
 const sliderBtnPrev = document.querySelector('.arrow-left');
 
-
+const SLIDER_LEFT = document.querySelector("#slider-left");
+const SLIDER_RIGHT = document.querySelector("#slider-right");
 // let silderWidth = slider.offsetWidth;
 
 // console.log(silderWidth + "slider width");
@@ -281,16 +286,99 @@ sliderBtnPrev.addEventListener('click', leftSlide);
 function leftSlide() {
     sliderCount--;
     SLIDER_LINE.classList.add("transition-left");
-    console.log("class added");
+    sliderBtnPrev.removeEventListener('click', leftSlide);
+    sliderBtnNext.removeEventListener('click', rightSlide);
+    console.log("left slide is coming");
 }
 
-SLIDER_LINE.addEventListener('animationend', removeTransitionLeft);
+SLIDER_LINE.addEventListener('animationend', (animationEvent) => {
+    if (animationEvent.animationName === "move-left") {
+        SLIDER_LINE.classList.remove("transition-left");
+        const LEFT_ITEMS = SLIDER_LEFT.innerHTML;
+        document.querySelector("#slider-curr").innerHTML = LEFT_ITEMS;
+        SLIDER_LEFT.innerHTML = "";
 
-function removeTransitionLeft() {
+        const card1 = document.createElement("div");
+        card1.classList.add("card");
+        createCard(Math.floor(Math.random() * 8), card1);
 
-    SLIDER_LINE.classList.remove("transition-left");
-    console.log("animation end");
+        const card2 = document.createElement("div");
+        card2.classList.add("card");
+        createCard(Math.floor(Math.random() * 8), card2);
+
+        const card3 = document.createElement("div");
+        card3.classList.add("card");
+        createCard(Math.floor(Math.random() * 8), card3);
+
+        // Math.floor(Math.random()*8);
+        SLIDER_LEFT.innerHTML = "";
+        // document.querySelector("#slider-left").innerHTML = "6";
+        // console.log("document.querySelector.slider-left.innerHTML" + document.querySelector("#slider-left").innerHTML);
+        SLIDER_LEFT.appendChild(card1);
+        SLIDER_LEFT.appendChild(card2);
+        SLIDER_LEFT.appendChild(card3);
+
+    }
+    else {
+        SLIDER_LINE.classList.remove("transition-right");
+        const RIGHT_ITEMS = SLIDER_RIGHT.innerHTML;
+        document.querySelector("#slider-curr").innerHTML = RIGHT_ITEMS;
+        SLIDER_RIGHT.innerHTML = "";
+
+        const card1 = document.createElement("div");
+        card1.classList.add("card");
+        createCard(Math.floor(Math.random() * 8), card1);
+
+        const card2 = document.createElement("div");
+        card2.classList.add("card");
+        createCard(Math.floor(Math.random() * 8), card2);
+
+        const card3 = document.createElement("div");
+        card3.classList.add("card");
+        createCard(Math.floor(Math.random() * 8), card3);
+
+        SLIDER_RIGHT.innerHTML = "";
+        SLIDER_RIGHT.appendChild(card1);
+        SLIDER_RIGHT.appendChild(card2);
+        SLIDER_RIGHT.appendChild(card3);
+
+
+
+    }
+
+    sliderBtnPrev.addEventListener('click', leftSlide);
+    sliderBtnNext.addEventListener('click', rightSlide);
+});
+
+// function removeTransitionLeft() {
+
+//     SLIDER_LINE.classList.remove("transition-left");
+//     sliderBtnPrev.addEventListener('click', leftSlide);
+//     sliderBtnNext.addEventListener('click', rightSlide);
+
+//     console.log("animation end");
+// }
+
+
+sliderBtnNext.addEventListener('click', rightSlide);
+
+function rightSlide() {
+    sliderCount++;
+    SLIDER_LINE.classList.add("transition-right");
+    sliderBtnPrev.removeEventListener('click', leftSlide);
+    sliderBtnNext.removeEventListener('click', rightSlide);
+    console.log("right slide");
 }
+
+// SLIDER_LINE.addEventListener('animationend', removeTransitionRight);
+
+// function removeTransitionRight() {
+
+//     SLIDER_LINE.classList.remove("transition-right");
+//     sliderBtnNext.addEventListener('click', rightSlide);
+
+//     console.log(" right animation end");
+// }
 // console.log(sliderCount);
 // console.log(`translateX(${silderWidth}px)` + " sdvig");
 
