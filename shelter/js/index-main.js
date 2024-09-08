@@ -6,8 +6,8 @@ const mainOverlaydark = document.getElementById('overlaydark');
 
 const mainBody = document.body;
 
-console.log(mainOverlaydark);
-console.log(mainOverlaydark.tagName);
+// console.log(mainOverlaydark);
+// console.log(mainOverlaydark.tagName);
 
 
 mainBurgerMenu.addEventListener('click', (event) => {
@@ -19,7 +19,7 @@ mainBurgerMenu.addEventListener('click', (event) => {
 });
 
 mainBurgerMenu.addEventListener('click', (event) => {
-    console.log(event);
+    // console.log(event);
     if (event.target.classList.contains('active')) {
         mainNavlist.classList.remove('active');
     }
@@ -29,7 +29,7 @@ mainBurgerMenu.addEventListener('click', (event) => {
 const contacts_link = document.getElementById('contacts_link');
 
 contacts_link.addEventListener('click', (event) => {
-    console.log(event);
+    // console.log(event);
     if (mainNavlist.classList.contains('active')) {
         togglePopupWindow();
         // mainBurgerMenu.classList.remove('rotated');
@@ -44,7 +44,7 @@ contacts_link.addEventListener('click', (event) => {
 const helpus_link = document.getElementById('helpus_link');
 
 helpus_link.addEventListener('click', (event) => {
-    console.log(event);
+    // console.log(event);
     if (mainNavlist.classList.contains('active')) {
         togglePopupWindow();
         // mainBurgerMenu.classList.remove('rotated');
@@ -60,7 +60,7 @@ window.addEventListener('click', function (e) {
         !document.getElementById('burgermenu').contains(e.target)) {
         togglePopupWindow();
     }
-})
+});
 
 function togglePopupWindow() {
     mainBurgerMenu.classList.toggle('rotated');
@@ -175,7 +175,7 @@ let pets = [
     }
 ];
 
-console.log("pets " + pets[0].name);
+// console.log("pets " + pets[0].name);
 // console.log("pet " + pets[0]);
 
 // import pets from '../../resources/pets.json';
@@ -186,24 +186,25 @@ function createCard(i, cardId) {
     const elementPicture = new Image();
     elementPicture.src = pets[i].img;
     elementPicture.alt = pets[i].name;
-    document.getElementById(cardId).appendChild(elementPicture);
+    cardId.appendChild(elementPicture);
+    // document.getElementById(cardId).appendChild(elementPicture);
 
 
     const elementNickname = document.createElement("div");
     elementNickname.classList.add("nickname");
     elementNickname.textContent = pets[i].name;
-    console.log(document.getElementById(cardId) + "to be created")
-    document.getElementById(cardId).appendChild(elementNickname);
+    console.log(cardId + "to be created");
+    cardId.appendChild(elementNickname);
+    console.log(elementNickname + pets[i].name + "was appended");
+    // document.getElementById(cardId).appendChild(elementNickname);
 
     const elementButton = document.createElement("button");
     elementButton.classList.add("button-section");
     elementButton.textContent = "Learn more";
-    document.getElementById(cardId).appendChild(elementButton);
+    cardId.appendChild(elementButton);
+    // document.getElementById(cardId).appendChild(elementButton);
 
 }
-
-createCard(1, "card1");
-createCard(5, "card5");
 
 // const elementPicture = new Image();
 // elementPicture.src = `../../images/pets-katrine.png`;
@@ -225,25 +226,29 @@ createCard(5, "card5");
 
 
 
-let currentCards = [];
-let leftCards = [];
-let rightcards = [];
-console.log("left cards    " + leftCards);
+// let currentCards = [];
+// let leftCards = [];
+// let rightcards = [];
 
-let randomNumber = Math.floor(Math.random() * 8);
+// let randomNumber = Math.floor(Math.random() * 8);
 
-const slider = document.querySelector('.slider-wrapper');
-const sliderImages = document.querySelectorAll('.card');
-const sliderLine = document.querySelector('.slider_line');
-console.log(sliderLine.offsetWidth + "width");
+// const slider = document.querySelector('.slider-wrapper');
+// const sliderImages = document.querySelectorAll('.card');
+const SLIDER_LINE = document.querySelector('.slider-line');
+// console.log(sliderLine.offsetWidth + "width");
 
 const sliderBtnNext = document.querySelector('.arrow-right');
 const sliderBtnPrev = document.querySelector('.arrow-left');
 
+const SLIDER_LEFT = document.querySelector("#slider-left");
+const SLIDER_RIGHT = document.querySelector("#slider-right");
+// let silderWidth = slider.offsetWidth;
 
-let silderWidth = slider.offsetWidth;
-sliderLine.style.transform = `translateX(${-silderWidth}px)`;
-console.log(`translateX(${silderWidth}px)` + " sdvig");
+// console.log(silderWidth + "slider width");
+
+// console.log("css slider wrapper width");
+// sliderLine.style.transform = `translateX(${-silderWidth}px)`;
+// console.log(`translateX(${silderWidth}px)` + " sdvig");
 
 let sliderCount = 1;
 let rightCount = 0;
@@ -253,45 +258,136 @@ sliderBtnNext.addEventListener('click', rightSlide);
 
 function rightSlide() {
     leftCount = 0;
+    SLIDER_LINE.classList.add("transition-right");
+    sliderCount++;
+}
 
-    if (!rightcards.length > 0) {
-        for (let j = 0; j < rightcards.length; j++) {
-            let generatedCardNumber = currentCards[0];
-            while (currentCards.includes(generatedCardNumber)) {
-                generatedCardNumber = randomNumber;
-            }
-            rightcards[j] = generatedCardNumber;
-        }
+// if (!rightcards.length > 0) {
+//     for (let j = 0; j < rightcards.length; j++) {
+//         let generatedCardNumber = currentCards[0];
+//         while (currentCards.includes(generatedCardNumber)) {
+//             generatedCardNumber = randomNumber;
+//         }
+//         rightcards[j] = generatedCardNumber;
+//     }
+// }
+
+
+// console.log(sliderCount);
+// console.log(`translateX(${silderWidth}px)` + " sdvig");
+// rollSlider();
+
+// if (sliderCount >= sliderImages.length / 3) {
+//     sliderCount = 0;
+// }
+
+sliderBtnPrev.addEventListener('click', leftSlide);
+
+function leftSlide() {
+    sliderCount--;
+    SLIDER_LINE.classList.add("transition-left");
+    sliderBtnPrev.removeEventListener('click', leftSlide);
+    sliderBtnNext.removeEventListener('click', rightSlide);
+    console.log("left slide is coming");
+}
+
+SLIDER_LINE.addEventListener('animationend', (animationEvent) => {
+    if (animationEvent.animationName === "move-left") {
+        SLIDER_LINE.classList.remove("transition-left");
+        const LEFT_ITEMS = SLIDER_LEFT.innerHTML;
+        document.querySelector("#slider-curr").innerHTML = LEFT_ITEMS;
+        SLIDER_LEFT.innerHTML = "";
+
+        const card1 = document.createElement("div");
+        card1.classList.add("card");
+        createCard(Math.floor(Math.random() * 8), card1);
+
+        const card2 = document.createElement("div");
+        card2.classList.add("card");
+        createCard(Math.floor(Math.random() * 8), card2);
+
+        const card3 = document.createElement("div");
+        card3.classList.add("card");
+        createCard(Math.floor(Math.random() * 8), card3);
+
+        // Math.floor(Math.random()*8);
+        SLIDER_LEFT.innerHTML = "";
+        // document.querySelector("#slider-left").innerHTML = "6";
+        // console.log("document.querySelector.slider-left.innerHTML" + document.querySelector("#slider-left").innerHTML);
+        SLIDER_LEFT.appendChild(card1);
+        SLIDER_LEFT.appendChild(card2);
+        SLIDER_LEFT.appendChild(card3);
+
+    }
+    else {
+        SLIDER_LINE.classList.remove("transition-right");
+        const RIGHT_ITEMS = SLIDER_RIGHT.innerHTML;
+        document.querySelector("#slider-curr").innerHTML = RIGHT_ITEMS;
+        SLIDER_RIGHT.innerHTML = "";
+
+        const card1 = document.createElement("div");
+        card1.classList.add("card");
+        createCard(Math.floor(Math.random() * 8), card1);
+
+        const card2 = document.createElement("div");
+        card2.classList.add("card");
+        createCard(Math.floor(Math.random() * 8), card2);
+
+        const card3 = document.createElement("div");
+        card3.classList.add("card");
+        createCard(Math.floor(Math.random() * 8), card3);
+
+        SLIDER_RIGHT.innerHTML = "";
+        SLIDER_RIGHT.appendChild(card1);
+        SLIDER_RIGHT.appendChild(card2);
+        SLIDER_RIGHT.appendChild(card3);
+
+
+
     }
 
+    sliderBtnPrev.addEventListener('click', leftSlide);
+    sliderBtnNext.addEventListener('click', rightSlide);
+});
 
+// function removeTransitionLeft() {
+
+//     SLIDER_LINE.classList.remove("transition-left");
+//     sliderBtnPrev.addEventListener('click', leftSlide);
+//     sliderBtnNext.addEventListener('click', rightSlide);
+
+//     console.log("animation end");
+// }
+
+
+sliderBtnNext.addEventListener('click', rightSlide);
+
+function rightSlide() {
     sliderCount++;
-    console.log(sliderCount);
-    console.log(`translateX(${silderWidth}px)` + " sdvig");
-    rollSlider();
-
-    // if (sliderCount >= sliderImages.length / 3) {
-    //     sliderCount = 0;
-    // }
-
+    SLIDER_LINE.classList.add("transition-right");
+    sliderBtnPrev.removeEventListener('click', leftSlide);
+    sliderBtnNext.removeEventListener('click', rightSlide);
+    console.log("right slide");
 }
 
+// SLIDER_LINE.addEventListener('animationend', removeTransitionRight);
 
+// function removeTransitionRight() {
 
-sliderBtnPrev.addEventListener('click', prevSlide);
+//     SLIDER_LINE.classList.remove("transition-right");
+//     sliderBtnNext.addEventListener('click', rightSlide);
 
-function prevSlide() {
-    sliderCount--;
-    console.log(sliderCount);
-    console.log(`translateX(${silderWidth}px)` + " sdvig");
-    rollSlider();
-    // if (sliderCount < 0) {
-    //     sliderCount = (sliderImages.length) / 3 - 1;
-    // }
+//     console.log(" right animation end");
+// }
+// console.log(sliderCount);
+// console.log(`translateX(${silderWidth}px)` + " sdvig");
 
-}
+// rollSlider();
+// if (sliderCount < 0) {
+//     sliderCount = (sliderImages.length) / 3 - 1;
+// }
 
-function rollSlider() {
-    sliderLine.style.transform = `translateX(${-sliderCount * silderWidth}px)`;
-}
+// function rollSlider() {
+//     sliderLine.style.transform = `translateX(${-sliderCount * silderWidth}px)`;
+// }
 
