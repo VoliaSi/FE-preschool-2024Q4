@@ -169,6 +169,10 @@ header {
 		margin-top: -20px;
 		width: 320px;
 		height: 100%;
+		text-align: center;
+		justify-content: center;
+		justify-items: center;
+		text-align: center;
 		margin-left: 100%;
 		position: fixed;
 		z-index: 4;
@@ -194,11 +198,13 @@ header {
 
 	@media (width <=768px) {
 		height: 100%;
+		margin-left: -40px;
 		flex-direction: column;
 		align-items: center;
 		align-content: center;
 		justify-content: center;
 		justify-items: center;
+		text-align: center;
 	}
 }
 
