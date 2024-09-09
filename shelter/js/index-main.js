@@ -175,6 +175,9 @@ let pets = [
     }
 ];
 
+let leftIndexes = [0, 1, 2];
+let currIndexes = [3, 4, 5];
+let rightIndexes = [6, 7, 0];
 // console.log("pets " + pets[0].name);
 // console.log("pet " + pets[0]);
 
@@ -298,17 +301,29 @@ SLIDER_LINE.addEventListener('animationend', (animationEvent) => {
         document.querySelector("#slider-curr").innerHTML = LEFT_ITEMS;
         SLIDER_LEFT.innerHTML = "";
 
+
+        currIndexes = leftIndexes;
+
+        leftIndexes = [55, 55, 55];
+        for (let i = 0; i < 3; i++) {
+            do {
+                leftIndexes[i] = Math.floor(Math.random() * 7);
+
+            }
+            while (currIndexes.includes(leftIndexes[i]) || leftIndexes.indexOf(leftIndexes[i]) != leftIndexes.lastIndexOf(leftIndexes[i]));
+        }
+
         const card1 = document.createElement("div");
         card1.classList.add("card");
-        createCard(Math.floor(Math.random() * 8), card1);
+        createCard(leftIndexes[0], card1);
 
         const card2 = document.createElement("div");
         card2.classList.add("card");
-        createCard(Math.floor(Math.random() * 8), card2);
+        createCard(leftIndexes[1], card2);
 
         const card3 = document.createElement("div");
         card3.classList.add("card");
-        createCard(Math.floor(Math.random() * 8), card3);
+        createCard(leftIndexes[2], card3);
 
         // Math.floor(Math.random()*8);
         SLIDER_LEFT.innerHTML = "";
@@ -325,17 +340,28 @@ SLIDER_LINE.addEventListener('animationend', (animationEvent) => {
         document.querySelector("#slider-curr").innerHTML = RIGHT_ITEMS;
         SLIDER_RIGHT.innerHTML = "";
 
+        currIndexes = rightIndexes;
+
+        rightIndexes = [55, 55, 55];
+        for (let i = 0; i < 3; i++) {
+            do {
+                rightIndexes[i] = Math.floor(Math.random() * 7);
+
+            }
+            while (currIndexes.includes(rightIndexes[i]) || rightIndexes.indexOf(rightIndexes[i]) != rightIndexes.lastIndexOf(rightIndexes[i]));
+        }
+
         const card1 = document.createElement("div");
         card1.classList.add("card");
-        createCard(Math.floor(Math.random() * 8), card1);
+        createCard(rightIndexes[0], card1);
 
         const card2 = document.createElement("div");
         card2.classList.add("card");
-        createCard(Math.floor(Math.random() * 8), card2);
+        createCard(rightIndexes[1], card2);
 
         const card3 = document.createElement("div");
         card3.classList.add("card");
-        createCard(Math.floor(Math.random() * 8), card3);
+        createCard(rightIndexes[2], card3);
 
         SLIDER_RIGHT.innerHTML = "";
         SLIDER_RIGHT.appendChild(card1);
