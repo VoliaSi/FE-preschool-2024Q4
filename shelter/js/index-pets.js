@@ -262,9 +262,11 @@ function navigate() {
     CURR_PAGE.innerHTML = currPageNumber;
     if (currPageNumber === 1) {
         PREV_PAGE.classList.add("notactive-arrow");
+        FIRST_PAGE.classList.add("notactive-arrow");
     }
     if (currPageNumber === 6) {
         NEXT_PAGE.classList.add("notactive-arrow");
+        LAST_PAGE.classList.add("notactive-arrow");
     }
 
 
