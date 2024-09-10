@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="preload" href="../../fonts/georgia/georgia-regular.ttf" as="font">
     <link rel="preload" href="../../fonts/arial/arial-narrow.ttf" as="font"> -->
-    <script src="index.js.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
@@ -49,7 +48,7 @@
                     <h2 class="page-title"> Our friends who<br>are looking for a house </h2>
                 </div>
 
-                <div class="slider">
+                <!-- <div class="slider">
                     <div class="card">
                         <img src="../../images/pets-katrine.png" alt="Katrine">
                         <div class="nickname">Katrine</div>
@@ -80,8 +79,6 @@
                         </button>
 
                     </div>
-                    <!-- </div>
-                <div class="slider"> -->
                     <div class="card not-mobile">
                         <img src="../../images/pets-timmy.png" alt="Timmy">
                         <div class="nickname">Timmy</div>
@@ -98,7 +95,7 @@
                         </button>
                     </div>
                     <div class="card extra">
-                        <img src="../../images/pets-scarlet.png" alt="Scarlet">
+                        <img src="../../images/pets-scarlett.png" alt="Scarlett">
                         <div class="nickname">Scarlet</div>
                         <button class="button-section">
                             Learn more
@@ -110,32 +107,33 @@
                         <button class="button-section">
                             Learn more
                         </button>
-                    </div>
+                    </div> -->
+                <div class="slider">
                 </div>
                 <nav class="arrow-navigation">
                     <ul class="nav-list-arrows">
                         <li class="nav-item-arrows">
-                            <button class="arrow">
+                            <button class="arrow" id="first-page" onClick="reply_click(this.id)">
                                 &lt;&lt;
                             </button>
                         </li>
                         <li class="nav-item-arrows">
-                            <button class="arrow">
+                            <button class="arrow" id="prev-page" onClick="reply_click(this.id)">
                                 &lt;
                             </button>
                         </li>
                         <li class="nav-item-arrows">
-                            <button class="arrow active-arrow">
+                            <button class="arrow active-arrow" id="curr-page" onClick="reply_click(this.id)">
                                 1
                             </button>
                         </li>
                         <li class="nav-item-arrows">
-                            <button class="arrow">
+                            <button class="arrow" id="next-page" onClick="reply_click(this.id)">
                                 &gt;
                             </button>
                         </li>
                         <li class="nav-item-arrows">
-                            <button class="arrow">
+                            <button class="arrow" id="last-page" onClick="reply_click(this.id)">
                                 &gt;&gt;
                             </button>
                         </li>
