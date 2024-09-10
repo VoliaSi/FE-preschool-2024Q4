@@ -12,6 +12,7 @@
 	--color-primary-light: #fddcc4;
 	--start-screen-gradient-background: #211f20;
 	--footer-gradient-background: #211f20;
+	--color-grey: #9ea1a1;
 	--content-width: 1200px;
 	--tablet-width: 768px;
 	--mobile-big-width: 414px;
@@ -475,10 +476,18 @@ main {
 	color: var(--color-dark-3xl);
 }
 
+.arrow:hover {
+	background: var(--color-primary);
+}
+
 .active-arrow {
 	background: var(--color-primary);
 }
 
+.notactive-arrow {
+	border: 2px solid var(--color-grey);
+	color: var(--color-grey);
+}
 
 footer {
 	margin: 0 auto;
