@@ -259,6 +259,16 @@ function navigate() {
     SLIDER.innerHTML = '';
 
     createCurrPage(currPageNumber);
+    CURR_PAGE.innerHTML = currPageNumber;
+    if (currPageNumber === 1) {
+        PREV_PAGE.classList.add("notactive-arrow");
+    }
+    if (currPageNumber === 6) {
+        NEXT_PAGE.classList.add("notactive-arrow");
+    }
+
+
+
 
 }
 
