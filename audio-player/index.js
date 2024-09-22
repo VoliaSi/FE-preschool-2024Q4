@@ -11,7 +11,9 @@ const imgSrc = document.querySelector('.img__src');
 const wrapper = document.querySelector('.wrapper');
 const song = document.querySelector('.song');
 const author = document.querySelector('.author');
-
+const all__duration = document.querySelector('.all__duration');
+const current__time = document.querySelector('.current__time');
+all__duration.innerHTML = "0";
 
 //song names
 let authors = ["Meadow", "Forest"];
@@ -45,6 +47,7 @@ function playSong() {
     player.classList.add('play');
     imgSrc.src = "icons/pause.png";
     author.classList.add('active-song');
+
     audio.play();
 }
 
@@ -98,6 +101,9 @@ prevBtn.addEventListener('click', prevSong);
 function updateProgress(e) {
     const { duration, currentTime } = e.srcElement;
     const progressPercent = (currentTime / duration) * 100;
+    all__duration.innerHTML = `${(duration / 60).toFixed(0)}:${(duration % 60).toFixed(0)}`;
+    current__time.innerHTML = `${(currentTime / 60).toFixed(0)}:${(currentTime % 60).toFixed(0)}`;
+
 
     progress.style.width = `${progressPercent}% `;;
     // `${ progressPercent }% `;
