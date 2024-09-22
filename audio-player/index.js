@@ -9,16 +9,26 @@ const cover = document.querySelector('.cover');
 const title = document.querySelector('.title');
 const imgSrc = document.querySelector('.img__src');
 const wrapper = document.querySelector('.wrapper');
+const song = document.querySelector('.song');
+const author = document.querySelector('.author');
+
 
 //song names
-songs = ["Song1", "Song2"];
+let authors = ["Meadow", "Forest"];
+let songs = ["Skylark", "Nightingale"];
+
+
 
 //default song
 songIndex = 0;
 
 function loadSong(song) {
-    title.innerHTML = song;
+    title.innerHTML = authors[songIndex];
+    author.innerHTML = song;
+
+    console.log("Song " + song + " author " + authors[songIndex]);
     let curInd = songIndex + 1;
+
     audio.src = 'audio/song' + curInd + '.mp3';
     cover.src = "images/image" + curInd + ".png";
     let bkgrndurl = `images/image${curInd}.png`;
@@ -34,12 +44,14 @@ loadSong(songs[songIndex]);
 function playSong() {
     player.classList.add('play');
     imgSrc.src = "icons/pause.png";
+    author.classList.add('active-song');
     audio.play();
 }
 
 function pauseSong() {
     player.classList.remove('play');
     imgSrc.src = "icons/play.png";
+    author.classList.remove('active-song');
     audio.pause();
 }
 
