@@ -88,9 +88,11 @@ header {
 
 .results {
 	padding: 0 2rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 10 px;
+	/* justify-content: center;
+	align-items: center; */
 }
 
 
