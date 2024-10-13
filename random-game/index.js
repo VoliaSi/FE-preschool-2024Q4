@@ -1,47 +1,141 @@
-// const inputSearchBar = document.getElementById("search_box");
-// const searchBtn = document.getElementById("searchBtn");
-// const resultDiv = document.querySelector(".results");
+const rules = document.querySelector(".rules-container");
+const rulesBtn = document.getElementById("rules_button");
+const inputGuess = document.getElementById("curr_guess");
+const guessBtn = document.getElementById("guess_btn");
+const resultDiv = document.querySelector(".results");
+// const mainOverlaydark = document.getElementById('overlaydark');
+// const closeButton = document.getElementById("close_button");
 
-// let access_key = "sEMZUUnC5YVbHLI3Wh4kWccaxhiebv00AVYOnwDkoFc";
+const mainBody = document.body;
 
-// let page = 1;
-// let results_per_page = 12;
-// let value = "any";
+let continueFlag = 1;
+
+let steps = 0;
+
+// const separatorDiv = document.createElement("div");
+// separatorDiv.innerHTML = '|';
+
+// function toggleRules() {
+//     rules.classList.toggle('active');
+//     mainBody.classList.toggle('modal-open');
+//     mainOverlaydark.classList.toggle('overlay-on');
+// }
+
+// rulesBtn.addEventListener('click', (e) => {
+//     toggleRules();
+// });
+
+// closeButton.addEventListener('click', (e) => {
+//     console.log("Close button");
+//     toggleRules();
+// });
+
+
+
+// mainBurgerMenu.addEventListener('click', (event) => {
+//     // console.log(event);
+//     if (event.target.classList.contains('active')) {
+//         mainNavlist.classList.remove('active');
+//     }
+
+// });
+
+let numberToGuess = createNumberToGuess();
+console.log("Number to guess " + numberToGuess);
+
+function validate(value) {
+
+    const numValue = Number(value);
+
+    if (numValue < 1023 || numValue > 9876) {
+        alert("Wrong number");
+        continueFlag = 0;
+    }
+    else {
+        continueFlag = 1;
+    }
+}
+
 
 // document.querySelector("input").focus();
+function showResult(value) {
+    if (continueFlag === 1) {
+        let resultOfGuess = '';
+        const guessDiv = document.createElement("div");
+        guessDiv.innerHTML = value;
+        resultDiv.appendChild(guessDiv);
 
-// async function showResults() {
-//     let pageUrl = `https://api.unsplash.com/search/photos?page=${page}&query=${value}&client_id=${access_key}&per_page=${results_per_page}`;
-//     // let pageUrl = `https://api.unsplash.com/search/photos/?client_id=${access_key}&query=${value}`;
-//     // let pageUrl = `https://api.unsplash.com/search/photos/?client_id=sEMZUUnC5YVbHLI3Wh4kWccaxhiebv00AVYOnwDkoFc&query=dog";
-//     let response = await fetch(pageUrl);
-//     let data = await response.json();
-//     let imageUrls = data.results;
-//     console.log(imageUrls);
-//     resultDiv.innerHTML = "";
-
-
-//     // showResults();
-
-//     imageUrls.map((imgurl) => {
-//         let img_div = document.createElement("div");
-//         let img = document.createElement("img");
-//         img.src = imgurl.urls.small;
-//         let imgLink = document.createElement("a");
-//         imgLink.href = imgurl.links;
-//         imgLink.appendChild(img);
-//         img_div.appendChild(imgLink);
-//         resultDiv.appendChild(img_div);
+        const separatorDiv = document.createElement("div");
+        separatorDiv.innerHTML = '|';
+        resultDiv.appendChild(separatorDiv);
 
 
-//     });
-// }
-// showResults();
 
-// searchBtn.addEventListener('click', (e) => {
-//     // value === NaN;
-//     e.preventDefault();
-//     value = inputSearchBar.value;
-//     showResults();
-//     // inputSearchBar.value = "";
-// })
+
+
+        resultOfGuess = calculateResult(value, numberToGuess);
+        const guessResultDiv = document.createElement("div");
+        guessResultDiv.innerHTML = resultOfGuess;
+        resultDiv.appendChild(guessResultDiv);
+
+        if (resultOfGuess === "B B B B ") {
+
+
+            console.log("END END !!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+            let myAudio = document.querySelector('#audio')
+            myAudio.play();
+            console.log('audio/short_applause_normal.mp3');
+
+        }
+    }
+
+}
+
+function calculateResult(value, numberToGuess) {
+    let calculatedResult = "";
+
+    let valueArray = String(value).split('').map(Number);
+
+    for (let j = 0; j < 4; j++) {
+        if (numberToGuess.includes(valueArray[j])) {
+            if (numberToGuess[j] === valueArray[j]) {
+                calculatedResult = calculatedResult + "B ";
+            }
+            else {
+                calculatedResult = calculatedResult + "C ";
+            }
+        }
+    }
+
+    return calculatedResult;
+}
+
+function createNumberToGuess() {
+    let createdNnumber = [];
+    for (let i = 0; i < 4; i++) {
+        do {
+            createdNnumber[i] = Math.floor(Math.random() * 9);
+
+        }
+        while (createdNnumber[0] === 0 || createdNnumber.includes(createdNnumber[i]) && createdNnumber.indexOf(createdNnumber[i]) != createdNnumber.lastIndexOf(createdNnumber[i]));
+    }
+    return createdNnumber;
+}
+
+
+guessBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    value = inputGuess.value;
+    validate(value);
+
+    showResult(value);
+    steps++;
+    console.log(steps);
+})
+
+
+
+
+
+

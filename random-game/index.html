@@ -21,34 +21,51 @@
 
         <header>
             <h1>Bulls and Cows</h1>
-            <button>Rules</button>
-
-
         </header>
         <main>
             <div class="wrapper">
-                <div class="form-container">
-                    <form action="">
-                        <input type="number" id="curr_guess" placeholder="Guess" step="1" min="1023" max="9876"
-                            autofocus>
-                        <label>Guess a 4-digit number<button type="submit" id="GuessBtn">Submit</button></label>
-                    </form>
+                <div class="game">
+                    <div class="form-container">
+                        <form action="">
+                            <label for="curr_guess">Guess a 4-digit number:</label>
+
+                            <input type="number" id="curr_guess" placeholder="Number" step="1" min="1023" max="9876"
+                                autofocus />
+                            <button id="guess_btn">Submit</button>
+                        </form>
+                    </div>
+                    <div class="results_header">
+                        <div>
+                            Guess
+                        </div>
+                        <div>
+                            |
+                        </div>
+
+                        <div>
+                            Result
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="results">
+                    </div>
                 </div>
+                <div class="rules">
+                    <p>You need to guess a 4-digit number.</p>
+                    <p>The number cannot begin with 0.</p>
+                    <p>All the digits of the number must be different.</p>
+                    <p>If you guess a digit of the number on its own place, you'll get B (bull) in the result.</p>
+                    <p>If you guess a digit of the number, but not on its own place, you'll get C (cow) in the result.
+                    </p>
+                    <p>The game ends when you guess the number = get B B B B in the result.</p>
+                    <p><b>A HINT FOR THE REVIEWERS!!! The guessed number is logged to the console.</b></p>
 
-                <hr>
-                <div class="results">
-                    <div>
-                        2345
-                    </div>
-                    <div>
-                        |
-                    </div>
-
-                    <div>
-                        5555
-                    </div>
                 </div>
             </div>
+            <div class="game-end">
+                <audio id="audio" src="/audio/short_applause_normal.mp3"></audio>
+            </div>
+
         </main>
 
         <footer>
