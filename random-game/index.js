@@ -14,6 +14,7 @@ let continueFlag = 1;
 
 let steps = 0;
 
+localStorage.setItem("store", [25, 56]);
 
 function toggleScore() {
     // score.classList.toggle('active');
@@ -72,7 +73,35 @@ function validate(value) {
     }
 }
 
+function endGame() {
+    console.log("END END !!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
+
+    score.innerHTML = `You've guessed with ${steps} tries`;
+    console.log(score.innerHTML);
+    // alert(`You've guessed with ${steps} tries`);
+    toggleScore();
+
+    let myAudio = document.querySelector('#audio')
+    myAudio.play();
+    if (typeof (Storage) !== "undefined") {
+        const scoreDiv = document.createElement("div");
+        scoreDiv.innerHTML = "Last results: " + localStorage.getItem("store") + "," + steps;
+        score.appendChild(scoreDiv);
+        let bestResults = localStorage.getItem("store");
+        console.log("best " + bestResults);
+        // let lastBest = bestResults.pop();
+        // if (steps < lastBest || bestResults.length < 10) {
+        //     bestResults.push(steps);
+        //     bestResults.sort();
+        //     localStorage.setItem("store", bestResults);
+        //     console.log("best " + bestResults);
+        // }
+        // Code for localStorage/sessionStorage.
+    } else {
+        alert("Sorry! No Web Storage support.");
+    }
+}
 // document.querySelector("input").focus();
 function showResult(value) {
     if (continueFlag === 1) {
@@ -95,18 +124,9 @@ function showResult(value) {
         resultDiv.appendChild(guessResultDiv);
 
         if (resultOfGuess === "B B B B ") {
+            endGame();
 
 
-            console.log("END END !!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
-
-            score.innerHTML = `You've guessed with ${steps + 1} tries`;
-            console.log(score.innerHTML);
-            // alert(`You've guessed with ${steps} tries`);
-            toggleScore();
-
-            let myAudio = document.querySelector('#audio')
-            myAudio.play();
         }
     }
 
@@ -148,9 +168,9 @@ guessBtn.addEventListener('click', (e) => {
     e.preventDefault();
     value = inputGuess.value;
     validate(value);
-
-    showResult(value);
     steps++;
+    showResult(value);
+
     console.log(steps);
 })
 
