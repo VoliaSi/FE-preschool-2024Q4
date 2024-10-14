@@ -13,8 +13,9 @@ const mainBody = document.body;
 let continueFlag = 1;
 
 let steps = 0;
+let bestResults = localStorage.getItem("store");
 
-localStorage.setItem("store", [25, 56]);
+// localStorage.setItem("store", [25, 56]);
 
 function toggleScore() {
     // score.classList.toggle('active');
@@ -85,11 +86,34 @@ function endGame() {
     let myAudio = document.querySelector('#audio')
     myAudio.play();
     if (typeof (Storage) !== "undefined") {
-        const scoreDiv = document.createElement("div");
-        scoreDiv.innerHTML = "Last results: " + localStorage.getItem("store") + "," + steps;
-        score.appendChild(scoreDiv);
         let bestResults = localStorage.getItem("store");
-        console.log("best " + bestResults);
+        let bestArray = [];
+        if (bestResults != undefined && bestResults.length > 0) {
+            bestArray = bestResults.split(",");
+            console.log("split best results" + bestArray);
+        }
+
+        bestArray.push(steps);
+        if (bestArray.length > 10) {
+            bestArray.shift();
+        }
+
+        localStorage.setItem("store", bestArray);
+        console.log("best local storage updated" + localStorage.getItem("store"));
+
+
+        const scoreDiv = document.createElement("div");
+        let processedResults = bestArray;
+        scoreTable = processedResults.map((result) => {
+            return `<li> ${result}</li>`;
+        });
+        console.log(scoreTable);
+        scoreTable = "<ol>" + scoreTable + "</ol>";
+
+        // scoreDiv.innerHTML = "Last results: " + localStorage.getItem("store") + "," + steps;
+        scoreDiv.innerHTML = "Last results: " + scoreTable;
+        score.appendChild(scoreDiv);
+
         // let lastBest = bestResults.pop();
         // if (steps < lastBest || bestResults.length < 10) {
         //     bestResults.push(steps);
