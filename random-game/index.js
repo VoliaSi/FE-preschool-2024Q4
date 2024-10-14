@@ -3,6 +3,8 @@ const rulesBtn = document.getElementById("rules_button");
 const inputGuess = document.getElementById("curr_guess");
 const guessBtn = document.getElementById("guess_btn");
 const resultDiv = document.querySelector(".results");
+const gameEnd = document.querySelector(".game-end");
+const score = document.querySelector(".score");
 // const mainOverlaydark = document.getElementById('overlaydark');
 // const closeButton = document.getElementById("close_button");
 
@@ -12,8 +14,22 @@ let continueFlag = 1;
 
 let steps = 0;
 
-// const separatorDiv = document.createElement("div");
-// separatorDiv.innerHTML = '|';
+
+function toggleScore() {
+    // score.classList.toggle('active');
+    gameEnd.classList.toggle('active');
+    // mainBody.classList.toggle('modal-open');
+    // mainOverlaydark.classList.toggle('overlay-on');
+}
+
+// mainBurgerMenu.addEventListener('click', (event) => {
+//     // console.log(event);
+//     if (event.target.classList.contains('active')) {
+//         mainNavlist.classList.remove('active');
+//     }
+
+// });
+
 
 // function toggleRules() {
 //     rules.classList.toggle('active');
@@ -83,10 +99,14 @@ function showResult(value) {
 
             console.log("END END !!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
+
+            score.innerHTML = `You've guessed with ${steps + 1} tries`;
+            console.log(score.innerHTML);
+            // alert(`You've guessed with ${steps} tries`);
+            toggleScore();
+
             let myAudio = document.querySelector('#audio')
             myAudio.play();
-            console.log('audio/short_applause_normal.mp3');
-
         }
     }
 
